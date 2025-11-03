@@ -65,6 +65,18 @@ spec:
               name: mcp-atlassian-config
               key: mcp-verbose
               optional: true
+        - name: JIRA_SSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              name: mcp-atlassian-config
+              key: jira-ssl-verify
+              optional: true
+        - name: CONFLUENCE_SSL_VERIFY
+          valueFrom:
+            configMapKeyRef:
+              name: mcp-atlassian-config
+              key: confluence-ssl-verify
+              optional: true
         # Sensitive credentials from Secret
         - name: JIRA_PERSONAL_TOKEN
           valueFrom:
