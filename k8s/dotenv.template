@@ -1,0 +1,116 @@
+# MCP Atlassian Kubernetes Deployment Configuration
+# Copy this file to .env and fill in your values
+
+# =============================================================================
+# REQUIRED: Atlassian URLs
+# =============================================================================
+# Your Jira Server/Data Center URL (no trailing slash)
+JIRA_URL=https://jira.example.com
+
+# Your Confluence Server/Data Center URL (no trailing slash)
+CONFLUENCE_URL=https://confluence.example.com
+
+# =============================================================================
+# REQUIRED: Personal Access Tokens
+# =============================================================================
+# Jira Personal Access Token
+# Generate from: Jira Settings → Personal Access Tokens
+JIRA_PERSONAL_TOKEN=your-jira-personal-token-here
+
+# Confluence Personal Access Token
+# Generate from: Confluence Settings → Personal Access Tokens
+CONFLUENCE_PERSONAL_TOKEN=your-confluence-personal-token-here
+
+# =============================================================================
+# REQUIRED: Kubernetes Configuration
+# =============================================================================
+# Kubernetes namespace to deploy to (will be created if it doesn't exist)
+NAMESPACE=default
+
+# =============================================================================
+# OPTIONAL: Transport Configuration
+# =============================================================================
+# Transport mode: stdio, sse, or streamable-http (default: streamable-http)
+TRANSPORT=streamable-http
+
+# HTTP server port (default: 8000)
+PORT=8000
+
+# HTTP server host (default: 0.0.0.0)
+HOST=0.0.0.0
+
+# =============================================================================
+# OPTIONAL: Logging Configuration
+# =============================================================================
+# Enable verbose logging: true or false (default: true)
+MCP_VERBOSE=true
+
+# Enable debug logging: true or false (default: false)
+# MCP_VERY_VERBOSE=false
+
+# Log to stdout instead of stderr: true or false (default: false)
+# MCP_LOGGING_STDOUT=false
+
+# =============================================================================
+# OPTIONAL: Access Control
+# =============================================================================
+# Enable read-only mode (disable all write operations): true or false
+# READ_ONLY_MODE=false
+
+# Enable specific tools only (comma-separated tool names)
+# Example: jira_search_issues,jira_get_issue,confluence_search
+# ENABLED_TOOLS=
+
+# =============================================================================
+# OPTIONAL: Content Filtering
+# =============================================================================
+# Filter by specific Confluence spaces (comma-separated space keys)
+# Example: DEV,TEAM,DOC
+# CONFLUENCE_SPACES_FILTER=
+
+# Filter by specific Jira projects (comma-separated project keys)
+# Example: PROJ,DEV,SUPPORT
+# JIRA_PROJECTS_FILTER=
+
+# =============================================================================
+# OPTIONAL: SSL Configuration
+# =============================================================================
+# Verify SSL certificates for Jira: true or false (default: true)
+# Set to false only if using self-signed certificates
+# JIRA_SSL_VERIFY=true
+
+# Verify SSL certificates for Confluence: true or false (default: true)
+# Set to false only if using self-signed certificates
+# CONFLUENCE_SSL_VERIFY=true
+
+# =============================================================================
+# OPTIONAL: Proxy Configuration
+# =============================================================================
+# HTTP/HTTPS proxy for Jira connections
+# JIRA_PROXY=http://proxy.example.com:8080
+
+# HTTP/HTTPS proxy for Confluence connections
+# CONFLUENCE_PROXY=http://proxy.example.com:8080
+
+# =============================================================================
+# OPTIONAL: Resource Limits
+# =============================================================================
+# CPU and memory requests (defaults shown)
+# MEMORY_REQUEST=128Mi
+# CPU_REQUEST=100m
+
+# CPU and memory limits (defaults shown)
+# MEMORY_LIMIT=512Mi
+# CPU_LIMIT=500m
+
+# =============================================================================
+# OPTIONAL: Deployment Configuration
+# =============================================================================
+# Number of replicas (default: 1)
+# REPLICAS=1
+
+# Image pull policy: Always, IfNotPresent, Never (default: Always)
+# IMAGE_PULL_POLICY=Always
+
+# Docker image tag (default: latest)
+# IMAGE_TAG=latest

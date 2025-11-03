@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mcp-atlassian-config
+  namespace: ${NAMESPACE}
+  labels:
+    app: mcp-atlassian
+    component: mcp-server
+data:
+  # Atlassian URLs - Configured from environment variables
+  jira-url: "${JIRA_URL}"
+  confluence-url: "${CONFLUENCE_URL}"
+
+  # HTTP Transport Configuration
+  transport: "${TRANSPORT}"
+  port: "${PORT}"
+  host: "${HOST}"
+
+  # Logging Configuration
+  mcp-verbose: "${MCP_VERBOSE}"
