@@ -77,6 +77,13 @@ spec:
               name: mcp-atlassian-config
               key: confluence-ssl-verify
               optional: true
+        # Python-level SSL bypass
+        - name: PYTHONHTTPSVERIFY
+          value: "0"
+        - name: REQUESTS_CA_BUNDLE
+          value: ""
+        - name: CURL_CA_BUNDLE
+          value: ""
         # Sensitive credentials from Secret
         - name: JIRA_PERSONAL_TOKEN
           valueFrom:
