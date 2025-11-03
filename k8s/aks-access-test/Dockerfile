@@ -14,5 +14,5 @@ RUN chmod +x test.py
 # Expose port for health checks
 EXPOSE 8080
 
-# Run the test
-CMD ["python3", "test.py"]
+# Run the test with unbuffered output
+CMD ["python3", "-u", "test.py"]
