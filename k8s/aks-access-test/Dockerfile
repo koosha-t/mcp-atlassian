@@ -2,8 +2,8 @@ FROM python:3.10-alpine
 
 WORKDIR /app
 
-# Install required packages
-RUN pip install --no-cache-dir requests urllib3
+# Install required packages with urllib3 1.26.x to avoid Python 3.10 SSLEOFError bug
+RUN pip install --no-cache-dir requests urllib3==1.26.18
 
 # Copy test script
 COPY test.py .
