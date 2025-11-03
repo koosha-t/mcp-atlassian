@@ -20,5 +20,5 @@ data:
   mcp-verbose: "${MCP_VERBOSE}"
 
   # SSL Verification (optional - defaults to true if not set)
-  jira-ssl-verify: "${JIRA_SSL_VERIFY:-true}"
-  confluence-ssl-verify: "${CONFLUENCE_SSL_VERIFY:-true}"
+  jira-ssl-verify: "${JIRA_SSL_VERIFY}"
+  confluence-ssl-verify: "${CONFLUENCE_SSL_VERIFY}"

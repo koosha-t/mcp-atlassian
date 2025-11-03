@@ -77,13 +77,15 @@ check-env: ## Check if .env file exists and validate required variables
 
 validate: check-env ## Validate the configuration
 	@echo "$(BLUE)Configuration:$(NC)"
-	@echo "  JIRA_URL:         $(JIRA_URL)"
-	@echo "  CONFLUENCE_URL:   $(CONFLUENCE_URL)"
-	@echo "  NAMESPACE:        $(NAMESPACE)"
-	@echo "  REPLICAS:         $(REPLICAS)"
-	@echo "  IMAGE_TAG:        $(IMAGE_TAG)"
-	@echo "  TRANSPORT:        $(TRANSPORT)"
-	@echo "  PORT:             $(PORT)"
+	@echo "  JIRA_URL:              $(JIRA_URL)"
+	@echo "  CONFLUENCE_URL:        $(CONFLUENCE_URL)"
+	@echo "  NAMESPACE:             $(NAMESPACE)"
+	@echo "  REPLICAS:              $(REPLICAS)"
+	@echo "  IMAGE_TAG:             $(IMAGE_TAG)"
+	@echo "  TRANSPORT:             $(TRANSPORT)"
+	@echo "  PORT:                  $(PORT)"
+	@echo "  JIRA_SSL_VERIFY:       $(JIRA_SSL_VERIFY)"
+	@echo "  CONFLUENCE_SSL_VERIFY: $(CONFLUENCE_SSL_VERIFY)"
 	@echo ""
 
 deploy: check-env ## Deploy MCP Atlassian to Kubernetes
