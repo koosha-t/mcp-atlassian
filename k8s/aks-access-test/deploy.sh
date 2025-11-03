@@ -85,6 +85,17 @@ else
 fi
 echo ""
 
+# Create ACR image pull secret
+echo -e "${YELLOW}Creating ACR image pull secret...${NC}"
+kubectl create secret docker-registry acr-secret \
+    --namespace="${NAMESPACE}" \
+    --docker-server="${ACR_NAME}.azurecr.io" \
+    --docker-username="${ACR_USERNAME}" \
+    --docker-password="${ACR_PASSWORD}" \
+    --dry-run=client -o yaml | kubectl apply -f -
+echo -e "${GREEN}✓ ACR secret created${NC}"
+echo ""
+
 # Base64 encode secrets
 export JIRA_URL_BASE64=$(echo -n "${JIRA_URL}" | base64)
 export CONFLUENCE_URL_BASE64=$(echo -n "${CONFLUENCE_URL}" | base64)
