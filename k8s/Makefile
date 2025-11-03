@@ -88,9 +88,14 @@ deploy: check-env ## Deploy MCP Atlassian to Kubernetes
 	@echo "$(BLUE)Deploying MCP Atlassian to Kubernetes...$(NC)"
 	@echo ""
 
-	@# Create namespace if it doesn't exist
-	@echo "$(YELLOW)Creating namespace '$(NAMESPACE)' if it doesn't exist...$(NC)"
-	@kubectl create namespace $(NAMESPACE) --dry-run=client -o yaml | kubectl apply -f -
+	@# Check if namespace exists, create only if it doesn't
+	@echo "$(YELLOW)Checking namespace '$(NAMESPACE)'...$(NC)"
+	@if kubectl get namespace $(NAMESPACE) >/dev/null 2>&1; then \
+		echo "$(GREEN)✓ Namespace '$(NAMESPACE)' already exists$(NC)"; \
+	else \
+		echo "$(YELLOW)Creating namespace '$(NAMESPACE)'...$(NC)"; \
+		kubectl create namespace $(NAMESPACE); \
+	fi
 	@echo ""
 
 	@# Base64 encode tokens for secret
