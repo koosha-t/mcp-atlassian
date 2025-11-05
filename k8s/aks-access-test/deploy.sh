@@ -42,23 +42,25 @@ if [ -z "$CONFLUENCE_URL" ] || [ -z "$CONFLUENCE_PERSONAL_TOKEN" ]; then
 fi
 
 NAMESPACE=${NAMESPACE:-kagent}
-IMAGE_NAME="${ACR_NAME}.azurecr.io/aks-access-test:latest"
+IMAGE_TAG=${IMAGE_TAG:-v2}
+IMAGE_NAME="${ACR_NAME}.azurecr.io/aks-access-test:${IMAGE_TAG}"
 
 echo -e "${BLUE}Configuration:${NC}"
 echo "  ACR: ${ACR_NAME}.azurecr.io"
 echo "  Namespace: ${NAMESPACE}"
-echo "  Image: ${IMAGE_NAME}"
+echo "  Image Tag: ${IMAGE_TAG}"
+echo "  Full Image: ${IMAGE_NAME}"
 echo ""
 
 # Build Docker image
 echo -e "${YELLOW}Building Docker image...${NC}"
-docker build -t aks-access-test:latest .
+docker build -t aks-access-test:${IMAGE_TAG} .
 echo -e "${GREEN}✓ Image built${NC}"
 echo ""
 
 # Tag image for ACR
 echo -e "${YELLOW}Tagging image for ACR...${NC}"
-docker tag aks-access-test:latest "${IMAGE_NAME}"
+docker tag aks-access-test:${IMAGE_TAG} "${IMAGE_NAME}"
 echo -e "${GREEN}✓ Image tagged${NC}"
 echo ""
 

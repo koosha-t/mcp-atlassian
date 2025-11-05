@@ -19,7 +19,7 @@ spec:
       - name: acr-secret
       containers:
       - name: test
-        image: ${ACR_NAME}.azurecr.io/aks-access-test:latest
+        image: ${ACR_NAME}.azurecr.io/aks-access-test:${IMAGE_TAG}
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
