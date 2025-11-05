@@ -45,6 +45,11 @@ NAMESPACE=${NAMESPACE:-kagent}
 IMAGE_TAG=${IMAGE_TAG:-v2}
 IMAGE_NAME="${ACR_NAME}.azurecr.io/aks-access-test:${IMAGE_TAG}"
 
+# Export for envsubst
+export NAMESPACE
+export IMAGE_TAG
+export ACR_NAME
+
 echo -e "${BLUE}Configuration:${NC}"
 echo "  ACR: ${ACR_NAME}.azurecr.io"
 echo "  Namespace: ${NAMESPACE}"
